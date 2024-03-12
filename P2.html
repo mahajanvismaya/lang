@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>
+            Languages App by kamal Sir
+        </title>
+        <style>
+            *{font-size:40px;}
+            body { background-color:lightblue; }
+            input[type="checkbox"] {width:3%; height:0.5em;}
+        </style>
+        <script>
+            function show(){
+            event.preventDefault();
+            let name = document.getElementById("name");
+            let py = document.getElementById("py");
+            let ja = document.getElementById("ja");
+            let js = document.getElementById("js");
+            let ans = document.getElementById("ans");
+          
+            if(name.value==""){
+                alert("Please enter your name....");
+                ans.innerHTML="";
+                name.focus();
+                return;
+            }
+            else if(name.value.trim()==""){
+                alert("Name should not contain spaces....");
+                name.value = "";
+                ans.innerHTML="";
+                name.focus();
+                return;
+            }
+            else if(! name.value.match("^[A-Za-z ]+$")){
+                alert("Name should contain only Alphabets....");
+                name.value = "";
+                ans.innerHTML="";
+                name.focus();
+                return;
+            }
+
+            let lang =" ";
+            if(py.checked){
+                lang = lang + " Python, "
+            }if (ja.checked){
+                lang = lang + " java, "
+            }if(js.checked){
+                lang = lang + " javascript "
+            }
+            let msg = "Name = "+name.value +"  Your languages = "+ lang;
+            ans.innerHTML=msg;
+        }
+        </script>
+
+    </head>
+    <body>
+        <center>
+            <form onsubmit="show()">
+                <h1>Langauges App</h1>
+                <input type="text" placeholder="enter your name" id="name"/>
+                <br><br>
+                <input type="checkbox" name="f" id="py"/> Python
+                <input type="checkbox" name="f" id="ja" /> Java
+                <input type="checkbox" name="f" id="js"/> Java Script
+                <br><br>
+                <input type="submit" />
+
+            </form>
+            <h2 id="ans"></h2>
+        </center>
+    </body>
+</html>
+
